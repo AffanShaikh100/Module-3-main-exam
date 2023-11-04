@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Office</title>
+    <!-- LINKING CSS FILE -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- LINKING FONT FILE INTER & MONTSERRAT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- LINKING JS QUERY IP FILE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <main>
+        <section>
+             <div class="homepagediv">
+                  <div class="homediv1">
+                       <h1>Post Office Application.</h1>
+                       <p>This Application Allows you to extract information about<br>
+                         nearest Post Offices, based on your location.</p>
+                       <img src="./Photos/mainpic.svg" alt="Loading">
+                  </div>
+                  <div class="homediv2">
+                      <h1>Your Current IP Address is <br><span id="homeiptag"></span></h1>
+                      <a href="./postoffices.html" target="_blank"><button>Get Started</button></a>
+                  </div>
+             </div>
+        </section>
+    </main>
+    
+     <!-- LINKING SCRIPT FILE -->
+     <script src="./script.js"></script>
+     <script>
+         $.getJSON("https://api.ipify.org?format=json", function(data) {
+         
+         // Setting text of element P with id gfg
+         $("#homeiptag").html(data.ip);
+         localStorage.setItem('ip', data.ip);
+     })
+     </script>
+</body>
+</html>
