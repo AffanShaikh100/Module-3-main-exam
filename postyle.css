@@ -161,3 +161,7 @@ nav>p{
     margin: 20px 0px;
     margin-left: 30px;
 }
+.postoffice>p>span{
+    font-size: 30px;
+    color: rgba(184, 188, 204, 0.50);
+}

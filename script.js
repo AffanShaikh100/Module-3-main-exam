@@ -34,6 +34,10 @@ let listpo;
         let orgip = document.getElementById("orgip");
         orgip.innerHTML=`<p id="navip">Organisation: <span>${org}</span></p>`;
 
+        let hostadd = location.hostname;
+        let hostname = document.getElementById("hostname");
+        hostname.innerHTML=`<p id="navip">Organisation: <span>${hostadd}</span></p>`;
+
         // input more user information in section 2
         let zoneip = data.timezone;
         let userpin = data.postal;
@@ -90,13 +94,15 @@ let listpo;
          let div = document.createElement("div");
          div.setAttribute("class","postoffice");
          div.innerHTML=`
-         <p>Name: </p>
-         <p>Branch Type</p>
-         <p>Delivery Status</p>
-         <p>District</p>
-         <p>Division</p>
+         <p>Name: <span>${data.Name}</span></p>
+         <p>Branch Type: <span>${data.BranchType}</span></p>
+         <p>Delivery Status: <span>${data.DeliveryStatus}</span></p>
+         <p>District: <span>${data.District}</span></p>
+         <p>Division: <span>${data.Division}</span></p>
          `
+         div.appendChild(maindiv);
       })
+
     }
 
 
@@ -114,95 +120,3 @@ let listpo;
       });
  }
 
-
-
-// Message
-// : 
-// "Number of pincode(s) found:3"
-// PostOffice
-// : 
-// (3) [{…}, {…}, {…}]
-    // data path
-//  let data = {
-//         asn
-// : 
-// "AS132497"
-// city
-// : 
-// "Mumbai"
-// continent_code
-// : 
-// "AS"
-// country
-// : 
-// "IN"
-// country_area
-// : 
-// 3287590
-// country_calling_code
-// : 
-// "+91"
-// country_capital
-// : 
-// "New Delhi"
-// country_code
-// : 
-// "IN"
-// country_code_iso3
-// : 
-// "IND"
-// country_name
-// : 
-// "India"
-// country_population
-// : 
-// 1352617328
-// country_tld
-// : 
-// ".in"
-// currency
-// : 
-// "INR"
-// currency_name
-// : 
-// "Rupee"
-// in_eu
-// : 
-// false
-// ip
-// : 
-// "103.195.249.238"
-// languages
-// : 
-// "en-IN,hi,bn,te,mr,ta,ur,gu,kn,ml,or,pa,as,bh,sat,ks,ne,sd,kok,doi,mni,sit,sa,fr,lus,inc"
-// latitude
-// : 
-// 19.0748
-// longitude
-// : 
-// 72.8856
-// network
-// : 
-// "103.195.248.0/23"
-// org
-// : 
-// "DIGITAL NETWORK ASSOCIATES PRIVATE LIMITED"
-// postal
-// : 
-// "400070"
-// region
-// : 
-// "Maharashtra"
-// region_code
-// : 
-// "MH"
-// timezone
-// : 
-// "Asia/Kolkata"
-// utc_offset
-// : 
-// "+0530"
-// version
-// : 
-// "IPv4"
-//     }
