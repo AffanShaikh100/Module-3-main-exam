@@ -131,6 +131,12 @@ nav>p{
     border: none;
     padding: 12px;
     background-color: transparent;
+    color: white;
+    margin-bottom: 6px;
+    vertical-align: bottom;
+}
+.inputdiv>input:focus{
+    outline: none;
 }
 .inputdiv>input::placeholder{
     color: #B8BCCC;
