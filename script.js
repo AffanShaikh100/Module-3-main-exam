@@ -76,18 +76,22 @@ let listpo;
 
         let message = data[0].Message;
         listpo = data[0].PostOffice;
-
+        
+        showponos(message);
         postofficecards(message,listpo);
     }
 
 
 //POST OFFICE DATA GOT AND NOW RENDERING CARDS
-  function postofficecards(message,list){
+  function showponos(message){
     // update msg no.of postoffice
     let postelnos = document.getElementById("postelnos");
     postelnos.innerHTML=`<p id="postelnos">Message:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${message}</p>`;
+  }
+  
+
+  function postofficecards(list){
     
-     // using foreachmethod
       let maindiv = document.getElementById("postofficelist");
       maindiv.innerHTML="";
       list.forEach((data)=>{
@@ -101,7 +105,7 @@ let listpo;
          <p>District: <span>${data.District}</span></p>
          <p>Division: <span>${data.Division}</span></p>
          `
-         div.appendChild(maindiv);
+         maindiv.appendChild(div);
       })
 
     }
@@ -121,3 +125,17 @@ let listpo;
       });
  }
 
+
+//  FILTER POST OFFICES
+
+function findpo(){
+    let text = document.getElementById("search");
+    let textdata = text.value.toLowerCase();
+
+    let filterarr = listpo.filter((s)=>{
+        return s.Name.toLowerCase().includes(textdata)||
+        s.BranchType.toLowerCase().includes(textdata);
+    });
+    postofficecards(filterarr);
+
+}
