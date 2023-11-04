@@ -78,7 +78,7 @@ let listpo;
         listpo = data[0].PostOffice;
         
         showponos(message);
-        postofficecards(message,listpo);
+        postofficecards(listpo);
     }
 
 
