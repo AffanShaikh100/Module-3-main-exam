@@ -131,7 +131,10 @@ nav>p{
     border: none;
     padding: 12px;
     background-color: transparent;
-    color: white;
+    color: #B8BCCC;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
     margin-bottom: 6px;
     vertical-align: bottom;
 }

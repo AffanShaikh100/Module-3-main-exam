@@ -58,27 +58,36 @@ let listpo;
 
 // CALLING IP OF USER AND FETCHING DETAILS
     async function getIpdetails(){
-     const response = await fetch(ipurl);
-     data = await response.json();
-     console.log(data);
-     console.log("working");
-     loadIpdata();
-     postofficedata(data.postal);
-     
+        try{
+            const response = await fetch(ipurl);
+            data = await response.json();
+            console.log(data);
+            console.log("working");
+            loadIpdata();
+            postofficedata(data.postal);
+        } catch (error){
+            console.error(error);
+        }
+    
     }
 
 
 // GETTING POST OFFICE DATA AT USER LOCATION
     async function postofficedata(pincode){
-        const response = await fetch(`https://api.postalpincode.in/pincode/${pincode}`);
-        data = await response.json();
-        console.log(data);
-
-        let message = data[0].Message;
-        listpo = data[0].PostOffice;
+        try{
+            const response = await fetch(`https://api.postalpincode.in/pincode/${pincode}`);
+            data = await response.json();
+            console.log(data);
+    
+            let message = data[0].Message;
+            listpo = data[0].PostOffice;
+            
+            showponos(message);
+            postofficecards(listpo);
+        } catch (error){
+            console.error(error);
+        }
         
-        showponos(message);
-        postofficecards(listpo);
     }
 
 
@@ -95,7 +104,6 @@ let listpo;
       let maindiv = document.getElementById("postofficelist");
       maindiv.innerHTML="";
       list.forEach((data)=>{
-        console.log(data);
          let div = document.createElement("div");
          div.setAttribute("class","postoffice");
          div.innerHTML=`
