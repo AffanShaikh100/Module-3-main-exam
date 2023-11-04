@@ -32,11 +32,11 @@ let listpo;
         regionip.innerHTML=`<p id="navip">Region:&nbsp&nbsp<span>${region}</span></p>`;
         
         let orgip = document.getElementById("orgip");
-        orgip.innerHTML=`<p id="navip">Organisation: <span>${org}</span></p>`;
+        orgip.innerHTML=`<p id="navip">Organisation: &nbsp<span>${org}</span></p>`;
 
         let hostadd = location.hostname;
         let hostname = document.getElementById("hostname");
-        hostname.innerHTML=`<p id="navip">Organisation: <span>${hostadd}</span></p>`;
+        hostname.innerHTML=`<p id="navip">Hostname: &nbsp<span>${hostadd}</span></p>`;
 
         // input more user information in section 2
         let zoneip = data.timezone;
@@ -91,6 +91,7 @@ let listpo;
       let maindiv = document.getElementById("postofficelist");
       maindiv.innerHTML="";
       list.forEach((data)=>{
+        console.log(data);
          let div = document.createElement("div");
          div.setAttribute("class","postoffice");
          div.innerHTML=`
